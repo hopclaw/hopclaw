@@ -1,0 +1,56 @@
+name: Feature request
+description: Propose a new capability or product improvement / 提出能力或产品改进建议
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please describe the user problem first, then the proposed solution.
+        Requests grounded in runtime behavior, operator workflow, safety, or release management are easier to evaluate.
+
+        请先描述用户问题，再描述你希望的方案。
+        如果需求和运行时行为、operator workflow、安全边界或发布流程有关，会更容易评估。
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve / 要解决的问题
+      description: What user or operator pain point is not handled well today?
+      placeholder: It is hard to roll out beta releases without exposing every operator to prerelease builds.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution / 建议的方案
+      description: Describe the feature or design you want.
+      placeholder: Add channel-specific release rollout controls with per-version dismissal and a signed manifest.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered / 目前替代做法
+      description: What are you doing today instead?
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and affected areas / 影响范围
+      description: CLI, config, gateway, runtime, channels, browser/desktop, docs, release tooling, etc.
+
+  - type: textarea
+    id: success
+    attributes:
+      label: What would success look like? / 你认为什么算成功？
+      description: Describe the outcome, not only the implementation.
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context / 补充信息
+      description: Links, mockups, related issues, or design constraints.

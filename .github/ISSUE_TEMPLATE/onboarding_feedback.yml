@@ -1,0 +1,87 @@
+name: Install / onboarding feedback
+description: Report download, install, setup, or first-run friction / 反馈安装、配置或首次跑通摩擦
+title: "[Onboarding]: "
+labels:
+  - onboarding
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form when the main problem is friction in download, install, setup, auth, or first-run workflow.
+
+        If you already have a reproducible runtime failure, crash, or clear regression, use the bug report template instead.
+
+        当主要问题是下载、安装、配置、认证或首次使用流程里的摩擦时，请使用这个模板。
+
+        如果你已经遇到可稳定复现的运行失败、崩溃或明确回归，请改用 bug report 模板。
+
+  - type: dropdown
+    id: install_method
+    attributes:
+      label: Install method / 安装方式
+      options:
+        - release binary
+        - install script
+        - go install
+        - source checkout
+        - docker
+        - other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Where did friction show up? / 摩擦出现在哪一步？
+      options:
+        - download
+        - install
+        - onboarding / setup wizard
+        - auth / token setup
+        - first health check
+        - first dashboard run
+        - first bug-report / diagnostics flow
+        - update flow
+        - docs / wording confusion
+        - other
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What felt rough? / 哪一步最不顺？
+      description: Describe the exact point where the flow became confusing, slow, or fragile.
+      placeholder: The install script worked, but I did not know which token to set before the first dashboard run.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect instead? / 你原本希望流程是什么？
+      description: Describe the simpler or clearer path you expected.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment / 环境信息
+      description: OS, architecture, shell, container/runtime details, and anything else that affected the flow.
+      placeholder: Ubuntu 24.04 amd64, bash, release binary install
+
+  - type: textarea
+    id: commands
+    attributes:
+      label: Commands, screenshots, or notes / 命令、截图或补充说明
+      description: Paste exact commands, screenshots, or the wording that caused confusion.
+      render: shell
+
+  - type: checkboxes
+    id: follow_up
+    attributes:
+      label: Follow-up / 后续配合
+      options:
+        - label: I can retest a proposed fix on the same machine later.
+        - label: I am willing to review onboarding or install docs again after changes land.
