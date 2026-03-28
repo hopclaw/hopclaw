@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Releases
+    url: https://github.com/hopclaw/hopclaw/releases
+    about: Download the latest visible release and check release notes before filing.
+  - name: Documentation
+    url: https://hopclaw.com/docs
+    about: Read install, onboarding, runtime boundary, and operator guidance before filing.
+  - name: Official website
+    url: https://hopclaw.com
+    about: Product overview, public updates, and canonical links.
+  - name: Security policy
+    url: https://github.com/hopclaw/hopclaw/security/policy
+    about: Report vulnerabilities privately according to SECURITY.md. Do not open a public issue.

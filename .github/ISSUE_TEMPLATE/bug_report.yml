@@ -1,0 +1,103 @@
+name: Bug report
+description: Report a reproducible HopClaw bug / 提交可复现问题
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting:
+
+        1. Confirm the issue still reproduces on the latest visible release.
+        2. Run `hopclaw doctor`.
+        3. Generate a redacted bundle with `hopclaw bug-report` when possible.
+
+        If the report is security-sensitive, stop here and use the private process in `SECURITY.md` instead of filing a public issue.
+
+        提交前请先确认：
+
+        1. 问题是否能在当前可见的最新版本上复现。
+        2. 已运行 `hopclaw doctor`。
+        3. 如可行，已执行 `hopclaw bug-report` 并准备好脱敏后的信息。
+
+        如果问题涉及安全，请不要提交公开 issue，请改走 `SECURITY.md` 中的私密流程。
+
+  - type: input
+    id: version
+    attributes:
+      label: HopClaw version / 版本
+      description: Output of `hopclaw version`
+      placeholder: 2026.3.17
+    validations:
+      required: true
+
+  - type: dropdown
+    id: release_channel
+    attributes:
+      label: Release channel / 发布通道
+      options:
+        - stable
+        - beta
+        - nightly
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install_method
+    attributes:
+      label: Install method / 安装方式
+      options:
+        - release binary
+        - install script
+        - docker
+        - other
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened? / 实际发生了什么？
+      description: Describe the actual behavior.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect? / 你原本预期什么？
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps / 复现步骤
+      description: Include exact commands, config fragments, or inputs when possible.
+      placeholder: |
+        1. Run `hopclaw serve --config ...`
+        2. Open ...
+        3. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment / 环境信息
+      description: OS, architecture, shell, container/runtime details, helper usage, and related context.
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs or bug-report bundle details / 日志或问题包信息
+      description: Paste the relevant redacted excerpt, or mention that you generated a bundle with `hopclaw bug-report`.
+      render: shell
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context / 补充信息
+      description: Screenshots, related versions, suspected regression range, or workarounds.
