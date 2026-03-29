@@ -2,40 +2,23 @@
 
 [简体中文](./README.zh-CN.md)
 
-HopClaw is a governed agent runtime for teams operating through chat, browser,
-desktop, and HTTP surfaces.
+**A Go runtime for tool-using AI agents.** Inspired by [OpenClaw](https://github.com/openclaw/openclaw) — lighter, single-binary, easier to deploy.
 
-This repository is the official public GitHub entry for HopClaw. It is used for
-releases, installation guidance, documentation links, security reporting
-instructions, and public product updates.
+<p align="center">
+  <img src="docs/assets/dashboard-overview.png" alt="HopClaw Operator Console" width="800">
+</p>
 
-Public source code is not available in this repository yet.
+## Why HopClaw
 
-## Quick Links
+OpenClaw is the most complete open-source AI Agent platform today. HopClaw takes the same direction — agent execution with approvals, audit, multi-channel messaging, and 80+ built-in tools — and reimplements it in Go for a different deployment profile:
 
-- Website: https://hopclaw.com
-- Documentation: https://hopclaw.com/docs
-- Releases: https://github.com/hopclaw/hopclaw/releases
-- Issues: https://github.com/hopclaw/hopclaw/issues
-- Install (macOS / Linux): `curl -fsSL https://hopclaw.com/install.sh | sh`
-- Install (Windows PowerShell): `irm https://hopclaw.com/install.ps1 | iex`
-
-## Status
-
-- HopClaw is available to use today through release binaries.
-- This repository does not contain the runtime source tree.
-- Tagged releases, checksums, and update notes are the primary artifacts
-  published here.
-- Security-sensitive reports should follow [SECURITY.md](./SECURITY.md), not
-  public issues.
-
-## What HopClaw Does
-
-- governs long-running agent runs and session lifecycle
-- provides approvals, audit trails, artifacts, and operator-friendly reporting
-- supports chat, browser, desktop, and HTTP execution surfaces
-- exposes built-in tools plus extension points for skills, channels, and hosted
-  capabilities
+| | OpenClaw (TypeScript) | HopClaw (Go) |
+|---|---|---|
+| Install | Node 22 + pnpm + hundreds of deps | One command, one binary |
+| Memory | 800MB+ | ~60MB |
+| Startup | ~10s | ~1s |
+| Runtime deps | Node.js required | Zero |
+| Deploy | npm install | curl \| sh |
 
 ## Install
 
@@ -53,48 +36,53 @@ irm https://hopclaw.com/install.ps1 | iex
 
 ### Guided Onboarding
 
-macOS / Linux:
-
 ```sh
 curl -fsSL https://hopclaw.com/install.sh | HOPCLAW_INSTALL_RUN_ONBOARD=1 sh
 ```
 
-Windows PowerShell:
+## What It Does
 
-```powershell
-$env:HOPCLAW_INSTALL_RUN_ONBOARD='1'; irm https://hopclaw.com/install.ps1 | iex
-```
+- **25+ messaging channels**: Feishu, Slack, Discord, Telegram, WhatsApp, Signal, Google Chat, LINE, Teams, IRC, Matrix, Mattermost, and more
+- **80+ built-in tools**: files, exec, web search, browser, desktop, email, calendar, Word/Excel/PPT
+- **Approval governance**: policy engine for tool calls — block, ask, or allow
+- **Audit trail**: every action recorded
+- **Browser & desktop automation**: via standalone `hopclaw-browserd` and `hopclaw-desktopd` helpers
+- **Skill ecosystem**: SKILL.md format, ClawHub-compatible discovery
+- **China-friendly models**: DeepSeek, Qwen, Moonshot, MiniMax, Baichuan, Volcengine, Hunyuan, SiliconFlow — plus OpenAI
+
+## Current Status
+
+- **Binary releases available now** — install and use today
+- **Source code will be opened in the coming weeks** — currently being cleaned up for public release
+- **Apache-2.0 license**
+
+## Quick Links
+
+- Website: https://hopclaw.com
+- Documentation: https://hopclaw.com/docs
+- Releases: https://github.com/hopclaw/hopclaw/releases
+- Issues: https://github.com/hopclaw/hopclaw/issues
 
 ## Reporting Bugs
 
-Before opening a bug:
+1. Run `hopclaw doctor`
+2. Optionally generate a redacted bundle: `hopclaw bug-report`
+3. Open an issue with version, platform, and reproduction steps
 
-1. Run `hopclaw doctor`.
-2. If possible, generate a redacted bundle with `hopclaw bug-report`.
-3. Open an issue with the bug template and include version, platform,
-   reproduction steps, and logs.
-
-If the problem is security-sensitive, do not file a public issue. Use the
-process in [SECURITY.md](./SECURITY.md).
+Security-sensitive reports: see [SECURITY.md](./SECURITY.md).
 
 ## Contributing
 
-This repository is not accepting source code contributions for the private core
-runtime yet. For the current contribution boundary and the types of feedback
-that are useful now, see [CONTRIBUTING.md](./CONTRIBUTING.md).
+Source code contributions are not accepted yet (source not public). Right now the most valuable contributions are:
 
-## Why The Source Is Not Public Yet
+- **Install & try it** — report what works and what doesn't
+- **Scenarios** — tell us what you'd want an AI agent to do in your workflow
+- **Docs & tutorials** — help others get started
+- **Skills & plugins** — any language, not just Go
+- **Frontend** — the operator console needs work
 
-HopClaw is currently distributed as release binaries while the product surface,
-licensing position, and support process continue to be tightened. This
-repository exists to give users a stable canonical GitHub entry before a
-broader source release decision is made.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
 
-## Chinese Summary
+## License
 
-HopClaw 是一个面向团队的 Agent Runtime，覆盖聊天、浏览器、桌面和 HTTP
-运行面。这个仓库是 HopClaw 的官方 GitHub 公开入口，用于发布版本、提供安装
-说明、链接文档、承接安全说明以及同步产品更新。目前本仓库暂不公开运行时
-源码。
-
-Chinese details: [README.zh-CN.md](./README.zh-CN.md)
+Apache-2.0. See [LICENSE](./LICENSE).
